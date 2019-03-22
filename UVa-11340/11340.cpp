@@ -1,13 +1,8 @@
 #include <iostream>
 #include<istream>
 #include <map>
-#include <cmath>
+#include <iomanip>
 using namespace std;
-
-bool double_is_int(double num) {
-   double absolute = abs(num);
-   return absolute == floor(absolute);
-}
 
 int main(){  
     map<char,int> values;
@@ -45,10 +40,7 @@ int main(){
                 }
             }
         }
-        if(double_is_int(sum))
-            cout << sum << ".00" << "$\n";
-        else
-            cout << sum << "$\n";
+        cout << fixed << std::setprecision(2)  << sum << "$" << endl;
 
         sum=0;
         values.clear();
