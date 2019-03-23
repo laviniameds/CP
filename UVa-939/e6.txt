@@ -1,0 +1,13 @@
+12
+Saulo recessive
+Mary dominant
+Marc dominant
+Peter Pedro
+Susan Pedro
+Saulo Sandra
+Mary Sandra
+Peter non-existent
+Pandora non-existent
+Susan recessive
+Pandora Moises
+Marc Moises
