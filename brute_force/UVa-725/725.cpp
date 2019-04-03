@@ -1,60 +1,54 @@
 #include <iostream>
 #include <set>
 #include <iomanip>
-#include <vector>
 
 using namespace std;
 
 int main(){
 
-    int n, y, x, c=0, cont=0, temp;
+    int n, y, x, cont=0, temp;
     set<int> s;
-    int array[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    set<int>::iterator it;
+    bool ultimo = false;
 
     while(cin >> n, n){
+        if(!ultimo)
+            ultimo = true;
+        else
+            cout << endl;
         for(y = 1234; y <= 98765/n; y++){
             x = y * n; 
-            temp = (y < 10000);         
-            temp = x;
+            temp = x;           
+            if(temp < 10000)
+                s.insert(0);
             while(temp){
-                array[temp%10] = -1; 
+                s.insert(temp%10); 
                 temp /= 10;
             }
+
             temp = y; 
+            if(temp < 10000)
+                s.insert(0);
             while(temp){
-                array[temp%10] = -1; 
+                s.insert(temp%10); 
                 temp /= 10;
             }
-
-            for(int i=0;i<10;i++){
-                if(array[i] != -1){
-                    c++;
-                }
-            }
-
-            if(c == 0){
-              cout << setw(5) << setfill('0') << x << " / "
-              << setw(5) << setfill('0') << y << " = " << n << endl; 
-              cont++;             
-            }
-
-            c=0;
-            for(int i=0;i<10;i++){
-                array[i] = i;
-            }
-
-            //cout << s.size() << endl;
-            // if(s.size() == 10){
-            //     cout << setw(5) << setfill('0') << x << " / "
-            //     << setw(5) << setfill('0') << y << " = " << n << endl;
-            //     count++;
+            
+            // for(it = s.begin(); it != s.end(); ++it){
+            //     cout << *it << " ";
             // }
-            // s.clear();
+            // cout << endl;
+
+            if(s.size() == 10){
+                cout << setw(5) << setfill('0') << x << " / "
+                << setw(5) << setfill('0') << y << " = " << n << endl;
+                cont++;
+            }
+            s.clear();
         }
         if(cont == 0)
             cout << "There are no solutions for " << n  <<"."<< endl;
         cont = 0;
-        cout << endl;
     }
     
 
