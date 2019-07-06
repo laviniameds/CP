@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 int main() {
   ios_base::sync_with_stdio(false);
   int galhos, qtd_pacotes, peso_galho, qtd_enfeites, peso_pacote;
